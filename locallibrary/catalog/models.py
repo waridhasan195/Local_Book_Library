@@ -4,7 +4,7 @@ import uuid
 
 
 class Genre(models.Model):
-    name = models.CharField(max_length = 200, help_text = 'Enter a book genre (e.g. Science Fiction)')
+    name = models.CharField(max_length = 200, help_text = 'Enter a book genre (e.g. Science Fictions)')
 
     def __str__(self):
         return self.name
@@ -22,6 +22,7 @@ class Book(models.Model):
 
     def get_absolute_url(self):
         return reverse('book-detail', args=[str(self.id)])
+
 
     def display_genre(self):
         return ', '.join(genre.name for genre in self.genre.all()[:3])
